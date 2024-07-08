@@ -346,8 +346,6 @@
 }
 
 
-/* Add these CSS classes to your stylesheet */
-
 .fade-enter {
   opacity: 0;
   transform: translateY(-10px);
@@ -379,4 +377,17 @@
   color: #40E0D0; /* Change the color on hover */
 }
 
-/* blogs page styles */
+.contactp a{
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+.contactp a:hover{
+  transform: translateX(15px); /* Move text horizontally */
+  color: #40E0D0; /* Change the color on hover */
+}
+
+.coursecards a{
+  transition: transform 0.3s ease;
+}
+.coursecards a:hover{
+    transform: scale(1.1);
+}

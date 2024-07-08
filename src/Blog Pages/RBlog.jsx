@@ -7,7 +7,7 @@ export default function RBlog() {
             bgImg: 'whyjava',
             heading: 'Why do most industries use Java?',
             date: '17 Jan 2023',
-            linkTo: '/why-choose-java'
+            linkTo: '/why-choose-java'            
         },
         {
             bgImg: 'full-stack-development',
@@ -24,11 +24,11 @@ export default function RBlog() {
     ];
 
     return (
-        <main className='shadow-coursebox w-[350px] lg:w-[370px] h-[865px] mx-auto blogm flex flex-col p-6 gap-[20px]'>
+        <main className='shadow-coursebox w-[350px] lg:w-[370px] h-[865px] mx-auto blogm flex flex-col p-6 gap-[20px]' data-aos="fade-left" data-aos-duration="2000">
             <h5 className='text-[18px] text-[#009dc3] font-bold '>Popular Posts</h5>
             {cards.map((card, index) => (
                     <article key={index} className='w-[280px] h-[350px]'>
-                        <figure className={`bg-${card.bgImg} w-full h-[157px] bg-cover rounded-md`}></figure>
+                        <figure className={`bg-${card.bgImg} w-full h-[157px] bg-cover rounded-md`} data-aos="zoom-in" data-aos-duration="2000"></figure>
                         <Link to={card.linkTo} className='text-[18px] text-[#009dc3] font-bold'>{card.heading}</Link>
                         <p className='text-[16px] font-[500] leading-[28px] text-[#505050]'>{card.date}</p>
                     </article>

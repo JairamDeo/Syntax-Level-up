@@ -72,7 +72,7 @@ export default function Home() {
 
             <section className='min-h-[728px] py-[64px] px-5 lg:px-[100px]'>
                 <h2 className='text-center text-[24px] lg:text-[40px] font-[500] leading-[48px] mb-[4rem]'>Our Popular Courses</h2>
-                <main className='w-full lg:w-[1240px] h-[392x] gap-[47px] lg:flex lg:flex-row sm:flex sm:flex-row justify-center items-center mx-auto'>
+                <main className='course w-full lg:w-[1240px] h-[392x] gap-[47px] lg:flex lg:flex-row sm:flex sm:flex-row justify-center items-center mx-auto'>
                     <CourseCard
                         bgImage="bg-FSDI"
                         courseTitle="Full Stack Development"

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Syllabuscards = ({ slink1, slink2, slink3, slink4, slink5, slink6, weekn }) => {
+const Syllabuscards = ({ slink1, slink2, slink3, slink4, slink5, slink6, weekn,aos,aosDuration }) => {
     return (
-        <div className='w-[337px] h-[222px] rounded-[20px] border border-t-0 border-l-1 border-b-4 border-r-1 border-[#38D200] p-[3rem] relative'>
+        <div className='w-[337px] h-[222px] rounded-[20px] border border-t-0 border-l-1 border-b-4 border-r-1 border-[#38D200] p-[3rem] relative' data-aos={aos} data-aos-duration={aosDuration}>
             <li>{slink1}</li>
             <li>{slink2}</li>
             <li>{slink3}</li>

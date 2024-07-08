@@ -29,36 +29,38 @@ export default function UiUx() {
                     </div>
                 </div>
 
-                <div className='w-[370px] h-[300px] lg:w-[633px] lg:h-[510px] bg-UiUxI1 bg-contain bg-no-repeat bg-center'>
+                <div className='w-[370px] h-[300px] lg:w-[633px] lg:h-[510px] bg-UiUxI1 bg-contain bg-no-repeat bg-center' data-aos="fade-left" data-aos-duration="1500">
 
                 </div>
 
             </section>
 
             <section className='py-5 w-[350px] lg:w-[1240px] mx-auto'>
-                <div className='w-[350px] lg:w-[1240px] mx-auto mb-3'>
-                    <h1 className='lg:w-[1040px] min-h-[48px] text-[24px] lg:text-[40px] font-bold leading-[48px] text-center mx-auto mb-3'>Course Syllabus</h1>
-                    <p className='lg:w-[1040px] min-h-[50px] text-[24px] lg:text-[20px] leading-[24px] text-center mx-auto'>We have crafted a 12 - weeks course that will enable you to transform into a designer.<br />A complete hands-on experience from industry leaders.</p>
-                </div>
-                <div className='w-[350px] lg:w-[1240px] mx-auto flex flex-row justify-around items-center gap-2 py-5'>
-                    <button
-                        className={`Frontendbtn w-[150px] lg:w-[220px] h-[56px] block ${activeSection === 'frontend' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'} font-semibold rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700 border border-1 border-blue-500`}
-                        onClick={() => setActiveSection('frontend')}
-                    >
-                        Frontend
-                    </button>
-                    <button
-                        className={`Backendbtn w-[150px] lg:w-[220px] h-[56px] block ${activeSection === 'backend' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'} font-semibold rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700 border border-1 border-blue-500`}
-                        onClick={() => setActiveSection('backend')}
-                    >
-                        Backend
-                    </button>
-                    <button
-                        className={`Databasebtn w-[150px] lg:w-[220px] h-[56px] block ${activeSection === 'database' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'} font-semibold rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700 border border-1 border-blue-500`}
-                        onClick={() => setActiveSection('database')}
-                    >
-                        Database
-                    </button>
+                <div data-aos="fade-down" data-aos-duration="2000">
+                    <div className='w-[350px] lg:w-[1240px] mx-auto mb-3'>
+                        <h1 className='lg:w-[1040px] min-h-[48px] text-[24px] lg:text-[40px] font-bold leading-[48px] text-center mx-auto mb-3'>Course Syllabus</h1>
+                        <p className='lg:w-[1040px] min-h-[50px] text-[24px] lg:text-[20px] leading-[24px] text-center mx-auto'>We have crafted a 12 - weeks course that will enable you to transform into a designer.<br />A complete hands-on experience from industry leaders.</p>
+                    </div>
+                    <div className='w-[350px] lg:w-[1240px] mx-auto flex flex-row justify-around items-center gap-2 py-5'>
+                        <button
+                            className={`Frontendbtn w-[150px] lg:w-[220px] h-[56px] block ${activeSection === 'frontend' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'} font-semibold rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700 border border-1 border-blue-500`}
+                            onClick={() => setActiveSection('frontend')}
+                        >
+                            Frontend
+                        </button>
+                        <button
+                            className={`Backendbtn w-[150px] lg:w-[220px] h-[56px] block ${activeSection === 'backend' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'} font-semibold rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700 border border-1 border-blue-500`}
+                            onClick={() => setActiveSection('backend')}
+                        >
+                            Backend
+                        </button>
+                        <button
+                            className={`Databasebtn w-[150px] lg:w-[220px] h-[56px] block ${activeSection === 'database' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'} font-semibold rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700 border border-1 border-blue-500`}
+                            onClick={() => setActiveSection('database')}
+                        >
+                            Database
+                        </button>
+                    </div>
                 </div>
 
                 <TransitionGroup>
@@ -77,6 +79,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 1"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -86,6 +90,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 2"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -95,6 +101,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 3"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -104,6 +112,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 4"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -113,6 +123,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 5"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -122,6 +134,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 6"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -131,6 +145,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 7"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -140,6 +156,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 8"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -149,6 +167,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 9"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -158,6 +178,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 10"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -167,6 +189,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 11"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -176,6 +200,8 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 12"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Html Structure"
@@ -185,7 +211,9 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 13"
-                                />    
+                                    aos='flip-right'
+                                    aosDuration='2500'
+                                />
                                 <Syllabuscards
                                     slink1="Html Structure"
                                     slink2="Html Tags and Elements"
@@ -194,7 +222,9 @@ export default function UiUx() {
                                     slink5="Table Integration"
                                     slink6="Favicon Implementation"
                                     weekn="Week 14"
-                                />                               
+                                    aos='flip-left'
+                                    aosDuration='2500'
+                                />
                             </main>
                         </CSSTransition>
                     )}
@@ -213,6 +243,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 1"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -222,6 +254,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 2"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -231,6 +265,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 3"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -240,6 +276,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 4"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -249,6 +287,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 5"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -258,6 +298,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 6"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -267,6 +309,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 7"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -276,6 +320,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 8"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -285,6 +331,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 9"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -294,6 +342,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 10"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -303,6 +353,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 11"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -312,6 +364,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 12"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -321,6 +375,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 13"
+                                    aos='flip-right'
+                                    aosDuration='2500'
                                 />
                                 <Syllabuscards
                                     slink1="Backend Topic 1"
@@ -330,6 +386,8 @@ export default function UiUx() {
                                     slink5="Backend Topic 5"
                                     slink6="Backend Topic 6"
                                     weekn="Week 14"
+                                    aos='flip-left'
+                                    aosDuration='2500'
                                 />
                             </main>
                         </CSSTransition>
@@ -349,6 +407,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 1"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -358,6 +418,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 2"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -367,6 +429,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 3"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -376,6 +440,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 4"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -385,6 +451,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 5"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -394,6 +462,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 6"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -403,6 +473,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 7"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -412,6 +484,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 8"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -421,6 +495,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 9"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -430,6 +506,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 10"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -439,6 +517,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 11"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -448,6 +528,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 12"
+                                    aos='fade-up'
+                                    aosDuration='2000'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -457,6 +539,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 13"
+                                    aos='flip-right'
+                                    aosDuration='2500'
                                 />
                                 <Syllabuscards
                                     slink1="Database Topic 1"
@@ -466,6 +550,8 @@ export default function UiUx() {
                                     slink5="Database Topic 5"
                                     slink6="Database Topic 6"
                                     weekn="Week 14"
+                                    aos='flip-left'
+                                    aosDuration='2500'
                                 />
                             </main>
                         </CSSTransition>

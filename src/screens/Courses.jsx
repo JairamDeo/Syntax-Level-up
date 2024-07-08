@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Courses() {
     return (
         <div className='py-[100px]'>
-            <main className='w-full lg:w-[1240px] h-[392x] gap-[47px] lg:flex lg:flex-row lg:flex-wrap sm:flex sm:flex-wrap sm:flex-row justify-center items-center mx-auto'>
+            <main className='coursecards w-full lg:w-[1240px] h-[392x] gap-[47px] lg:flex lg:flex-row lg:flex-wrap sm:flex sm:flex-wrap sm:flex-row justify-center items-center mx-auto'>
                 <Link to="/Full-Stack-Development">
                     <CourseCard
                         bgImage="bg-FSDI"

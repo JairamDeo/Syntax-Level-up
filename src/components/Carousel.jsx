@@ -8,7 +8,7 @@ const testimonials = [
     company: 'Capgemini',
     message:
       'I am incredibly grateful to Syntax level up for their outstanding services! With their help, I found my job within a short period.',
-  },
+    },
   {
     id: 2,
     image: 'bg-test2i',
@@ -16,7 +16,7 @@ const testimonials = [
     company: 'Infosys',
     message:
       'Huge gratitude to Syntax Level Up for their exceptional service! With their aid, I swiftly secured my job. Their assistance was invaluable in my job search journey.',
-  },
+    },
   {
     id: 3,
     image: 'bg-test1i',
@@ -24,7 +24,7 @@ const testimonials = [
     company: 'Cognizant',
     message:
       'Immense appreciation to Syntax Level Up for their exceptional service! With their assistance, I quickly landed my job. Their support was instrumental in my job search success.',
-  },
+    },
 ];
 
 export default function Carousel() {
@@ -48,7 +48,7 @@ export default function Carousel() {
         </h2>
 
         <div className='testmain sm:w-[600px] lg:w-[1180px] h-[650px] lg:h-[388px] lg:px-[40px] py-5 lg:py-[100px] lg:gap-[10px] flex flex-col lg:flex-row justify-center mx-auto relative'>
-          <div className={`testi w-[339px] h-[348px] ${testimonials[currentTestimonial].image} bg-no-repeat mx-auto`} data-aos="zoom-in" data-aos-duration="2000"></div>
+          <div className={`testi w-[339px] h-[348px] ${testimonials[currentTestimonial].image} bg-no-repeat mx-auto`}></div>
           <div className='test2 w-[300px] lg:w-[532px] h-[550px] lg:h-[235px] gap-[8px] shadow-coursebox flex flex-col justify-center p-[20px] mx-auto relative' data-aos="fade-left" data-aos-duration="1500">
             <div className='icons w-[152px] h-[24px] flex flex-row flex-start gap-[8px]'>
               {[...Array(5)].map((_, index) => (
