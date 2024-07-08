@@ -1,0 +1,382 @@
+#root {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar a:hover {
+  color: #38D200;
+}
+
+/* Submenu styles */
+.submenu {
+  display: none;
+  position: absolute;
+  width: 305px;
+  background-color: #f9f9f9;
+  border: 2px solid #66dc3c;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+  left: 0;
+  top: 100%;
+  border-radius: 8px;
+  padding: 10px 0;
+  z-index: 1000;
+  transition: all ease 0.5s;
+}
+
+.submenu-item {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.submenu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.relative:hover .submenu {
+  display: block;
+}
+
+.md\\:hidden .submenu {
+  position: static;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.md\\:hidden .submenu-item {
+  padding: 10px 20px;
+}
+
+/* Navbar styles end */
+
+
+
+.elipsel {
+  /* Ellipse 238 */
+
+  position: absolute;
+  width: 312.8px;
+  height: 312.8px;
+  left: -129.01px;
+  top: 0px;
+
+  background: linear-gradient(118.49deg, #8EFFD6 2.25%, rgba(142, 167, 255, 0) 107.56%);
+  filter: blur(40px);
+  transform: rotate(-84.84deg);
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  z-index: 2;
+}
+
+.elipser {
+  /* Ellipse 237 */
+
+  position: absolute;
+  width: 312.8px;
+  height: 312.8px;
+  right: 30px;
+  bottom: 0px;
+
+  background: linear-gradient(118.49deg, #8EFFD6 2.25%, rgba(142, 167, 255, 0) 107.56%);
+  filter: blur(40px);
+  transform: rotate(-84.84deg);
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  z-index: 1;
+
+}
+
+.sec2box4 {
+  border: 1px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+/* Home testimonal styles */
+.testmain {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, rgba(56, 210, 0, 0.29) 0%, #0473EA 100%) border-box;
+  border: 1.5px solid transparent;
+  border-radius: 15px;
+}
+
+.testbox {
+  box-shadow: 0px 4px 10px 0px #0473EA26;
+  border-radius: 50%;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .testi {
+    background-position: center;
+  }
+}
+
+/*Home styles end*/
+
+/* gradient with corner radius */
+.gradient {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, rgba(56, 210, 0, 0.29) 0%, #0473EA 100%) border-box;
+  border: 1.5px solid transparent;
+  border-radius: 15px;
+}
+
+.gradient1 {
+  background: linear-gradient(155.31deg, rgba(188, 4, 234, 0.82) -7.72%, rgba(9, 4, 234, 0.71) 89.89%);
+}
+
+.location {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.iconsc {
+  background: #D9D9D9;
+}
+
+
+/* Home Page Slider styles */
+
+.cardsd {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px 40px 56px;
+  gap: 40px;
+
+  height: 200px;
+
+  background: #FFFFFF;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.card1,
+.card2,
+.card3,
+.card4,
+.card5,
+.card6,
+.card7 {
+
+  display: flex;
+  padding: 0px;
+  gap: 10px;
+
+  width: 330px;
+  height: 171px;
+
+  border: 1px;
+  border-radius: 20px 0px 0px 20px;
+  opacity: 0px;
+  border-width: 4px 1px 1px 1px;
+  border-style: solid;
+  border-color: #38D200;
+  padding: 48px, 48px, 32px, 48px;
+  border-radius: 15px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-right: 2rem;
+
+}
+
+.imgdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+  margin-top: 1.2rem;
+
+  width: 100px;
+  height: 127px;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+
+}
+
+.cardi1 {
+  width: 80px;
+  height: 80px;
+
+}
+
+.imgdiv p {
+  /* Shweta S. */
+
+  width: 74px;
+  height: 19px;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  /* or 19px */
+
+  color: #353535;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.infod {
+  /* Frame 1000004423 */
+
+  /* Auto layout */
+  margin-top: 2.2rem;
+  margin-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+
+  width: 187px;
+  height: 110px;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+}
+
+.p1 {
+
+  width: 187px;
+  height: 24px;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+
+  color: rgba(18, 18, 18, 0.9);
+
+}
+
+.p2 {
+  /* 11.45 LPA */
+
+  width: 116px;
+  height: 29px;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+
+  color: #121212;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+}
+
+.infod img {
+  /* Frame 1000004422 */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 2px;
+
+  width: 109px;
+  height: 41px;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+}
+
+.weekbox{
+  border-radius: 2px 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* Add these CSS classes to your stylesheet */
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.foot a{
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.foot a:hover{
+  transform: translateX(15px); /* Move text horizontally */
+  color: #40E0D0; /* Change the color on hover */
+}
+
+/* blogs page styles */
