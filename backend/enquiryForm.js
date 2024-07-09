@@ -33,7 +33,7 @@ router.post('/enquiryForm', async (req, res) => {
       return res.status(400).json({ error: 'Invalid email format' });
     }
 
-    const sql = 'INSERT INTO enquirydetails (name, email, mobile, query) VALUES (?, ?, ?, ?)';
+    const sql = 'INSERT INTO enquirydetails (name, email, mobile, query, date) VALUES (?, ?, ?, ?, NOW())';
     connection.query(sql, [name, email, mob, query], (error, results) => {
       if (error) {
         console.error('Error executing enquiryForm query: ', error);
@@ -55,7 +55,7 @@ const isValidEmail = (email) => {
 
 // Fetch enquiries endpoint
 router.get('/getEnquiries', (req, res) => {
-  const sql = 'SELECT name, email, mobile, query FROM enquirydetails';
+  const sql = 'SELECT name, email, mobile, query, date FROM enquirydetails';
   connection.query(sql, (error, results) => {
     if (error) {
       console.error('Error executing query:', error.sqlMessage);

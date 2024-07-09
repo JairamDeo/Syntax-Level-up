@@ -70,6 +70,18 @@ export default function EnquiryMade() {
                 className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
+            <label htmlFor="date" className="block mb-2 text-gray-700 font-semibold mt-2">Date:</label>
+            <div className="relative mb-4">
+              <i className="fa-solid fa-calendar absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+              <input
+                type="text"
+                id="date"
+                name="date"
+                value={new Date(enquiry.date).toLocaleString()}
+                readOnly
+                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
           </form>
         </div>
       ))}
