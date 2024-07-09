@@ -53,4 +53,16 @@ const isValidEmail = (email) => {
   return regex.test(email);
 };
 
+// Fetch enquiries endpoint
+router.get('/getEnquiries', (req, res) => {
+  const sql = 'SELECT name, email, mobile, query FROM enquirydetails';
+  connection.query(sql, (error, results) => {
+    if (error) {
+      console.error('Error executing query:', error.sqlMessage);
+      return res.status(500).json({ error: 'An error occurred while fetching enquiries', details: error.sqlMessage });
+    }
+    res.status(200).json(results);
+  });
+});
+
 module.exports = router;

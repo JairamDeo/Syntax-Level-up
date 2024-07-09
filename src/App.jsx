@@ -30,6 +30,7 @@ import Blog4 from "../src/Blog Pages/Blog4";
 import Blog5 from "../src/Blog Pages/Blog5";
 
 import MyCourses from "./screens/Mycourses";
+import EnquiryMade from "./screens/EnquiryMade";
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
           <Route exact path="/fullstack-interview-tips-and-tricks" element={<Blog5/>}/>
 
           <Route exact path="/mycourse" element={<MyCourses/>}/>
+          <Route exact path="/enquirymade" element={<EnquiryMade/>}/>
         </Routes>
       <Footer/>  
       </div>

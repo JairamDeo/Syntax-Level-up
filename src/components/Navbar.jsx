@@ -99,7 +99,8 @@ export default function Navbar() {
                             :
                             <React.Fragment>
                                 {/* Admin Logout */}
-                                <Link to="/admin-login" className='nav-link' onClick={handleAdminLogout}>Admin Logout</Link>
+                                 <NavLink to="/enquirymade" activeClassName="text-[#66dc3c]" className='text-[16px] weight-600 text-black leading-[17.6px]'>Enquiries</NavLink>
+                                <Link to="/admin-login" className='nav-link ml-3' onClick={handleAdminLogout}>Admin Logout</Link>
                             </React.Fragment>
                         }
                         </div>                        
