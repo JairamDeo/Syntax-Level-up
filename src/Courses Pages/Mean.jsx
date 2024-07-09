@@ -4,6 +4,15 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default function Mean() {
     const [activeSection, setActiveSection] = useState('frontend');
+    const handleDownload = () => {
+        const pdfPath = '/SyllabusPdf/Mean-Syllabus.pdf'; // Path to your PDF file inside the public folder
+        const link = document.createElement('a');
+        link.href = pdfPath;
+        link.download = 'Mean Stack Development Syllabus.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };    
 
     return (
         <div className='py-[80px]'>
@@ -23,7 +32,7 @@ export default function Mean() {
                         <button className=" w-[150px]  lg:w-[220px] h-[56px] block bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700">
                             Enroll Now
                         </button>
-                        <button className=" w-[150px]  lg:w-[220px] h-[56px] block bg-white text-blue-500 font-semibold rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700 border border-1 border-blue-500">
+                        <button onClick={handleDownload} className=" w-[150px]  lg:w-[220px] h-[56px] block bg-white text-blue-500 font-semibold rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 duration-700 border border-1 border-blue-500">
                             Download Syllabus
                         </button>
                     </div>
