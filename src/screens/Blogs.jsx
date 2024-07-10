@@ -48,7 +48,7 @@ export default function Blogs() {
 
   return (
     <div className='py-[80px] px-5 lg:px-[96px]'>
-      <section className='w-full flex flex-col lg:flex-row justify-between gap-[40px]'>
+      <section className='w-full flex flex-col lg:flex-row sm:grid sm:grid-cols-2 justify-between gap-[40px]'>
         <aside className='flex flex-col gap-[20px] mx-auto'>
           {cards.map((card, index) => (
             <article key={index} className='w-[350px] lg:w-[770px] lg:min-h-[500px] shadow-coursebox' data-aos={card.aos} data-aos-duration={card.aosDuration}>

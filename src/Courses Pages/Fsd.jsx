@@ -79,7 +79,7 @@ export default function Fsd() {
                             timeout={1000}
                             classNames="fade"
                         >
-                            <main className='FrontendContainer w-full py-[65px] gap-[64px] flex flex-col lg:flex-row flex-wrap justify-evenly'>
+                            <main className='FrontendContainer w-full py-[65px] gap-[64px] flex flex-col lg:flex-row  flex-wrap justify-evenly'>
                                 <Syllabuscards
                                     slink1="Html Structure"
                                     slink2="Html Tags and Elements"

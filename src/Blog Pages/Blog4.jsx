@@ -4,9 +4,9 @@ import RBlog from '../Blog Pages/RBlog';
 export default function Blog4() {
   return (
     <div className='py-[80px] px-5 lg:px-[96px]'>
-      <section className='w-full flex flex-col lg:flex-row justify-between gap-[40px]'>
+      <section className='w-full flex flex-col lg:flex-row sm:grid sm:grid-cols-2 justify-between gap-[40px]'>
         <aside className='flex flex-col gap-[20px]'>
-          <article className='w-[350px] lg:w-[770px] min-h-[500px] shadow-coursebox'>
+          <article className='w-[350px] lg:w-[770px] sm:w-[480px] min-h-[500px] shadow-coursebox'>
             <figure className='bg-whyjava w-full h-[433px] bg-cover rounded-lg'></figure>
             <p className='text-[22px] text-[#009dc3] font-bold p-3'>Why do most industries use Java?</p>
             <div className='flex flex-row gap-[50px] p-3'>
