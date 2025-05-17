@@ -43,7 +43,6 @@ export default function Login() {
         mobile: credentials.mobile        
       });
       if (response && response.data) {
-        console.log(response.data);
         setCredentials({ name: "", email: "", password: "", confirmPassword: "", mobile: "" });
         setError(null);
         alert("Account created successfully!");
@@ -81,7 +80,6 @@ export default function Login() {
         setError(null);
         alert("Logged in successfully!");
         localStorage.setItem("authToken",response.authToken);
-        console.log(localStorage.getItem("authToken"));
         navigate("/");
       } else {
         throw new Error("Invalid response received");

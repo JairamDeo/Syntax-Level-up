@@ -12,12 +12,10 @@ export default function AdminLogin() {
     e.preventDefault();
     try {
       const response = await axios.post(`${backendUrl}/api/adminlogin`, formData);
-      console.log(response.data);
       alert('Admin login successfully');
       setFormData({ username: '', password: '' }); // Clear all fields
 
       localStorage.setItem("authToken1",response.authToken1);
-      console.log(localStorage.getItem("authToken1"));
       navigate("/");
 
     } catch (error) {
