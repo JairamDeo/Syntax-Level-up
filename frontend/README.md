@@ -43,7 +43,12 @@ cd Syntax-Level-up/frontend
 
 Before running the frontend app, create a `.env` file in the root directory and add the following line:
 
+```bash
+vim .env
 ```
+
+
+```bash
 VITE_BACKEND_URL=http://localhost:5000
 ```
 
