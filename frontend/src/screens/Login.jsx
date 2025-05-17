@@ -14,6 +14,7 @@ export default function Login() {
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false); // State to track password visibility
   const [showPassword2, setShowPassword2] = useState(false); // State to track confirm password visibility
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const handleRegisterClick = () => {
     setActiveWrapper(true);
@@ -35,7 +36,7 @@ export default function Login() {
   }
 
     try {
-      const response = await axios.post("http://localhost:5000/signup", {
+      const response = await axios.post(`${backendUrl}/signup`, {
         name: credentials.name,
         email: credentials.email,
         password: credentials.password,
@@ -70,7 +71,7 @@ export default function Login() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post(`${backendUrl}/login`, {
         email: loginCredentials.email,
         password: loginCredentials.password,
       });

@@ -6,11 +6,12 @@ export default function AdminLogin() {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [showPassword, setShowPassword] = useState(false); // State to track password visibility
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const handleAdminLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/adminlogin', formData);
+      const response = await axios.post(`${backendUrl}/api/adminlogin`, formData);
       console.log(response.data);
       alert('Admin login successfully');
       setFormData({ username: '', password: '' }); // Clear all fields

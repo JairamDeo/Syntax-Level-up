@@ -3,11 +3,12 @@ import axios from 'axios';
 
 export default function EnquiryMade() {
   const [enquiries, setEnquiries] = useState([]);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchEnquiries = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/getEnquiries');
+        const response = await axios.get(`${backendUrl}/api/getEnquiries`);
         setEnquiries(response.data);
       } catch (error) {
         console.error('Error fetching enquiries:', error);
