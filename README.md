@@ -5,9 +5,12 @@ This guide helps you set up the **MySQL database** for the project. It includes 
 
 ---
 ## 📦Required Database Credentials 
-DB_HOST
-DB_USER ( your username of db)
-DB_PASSWORD
+DB_HOST ,
+
+DB_USER ( your username of db) ,
+
+DB_PASSWORD ,
+
 DB_NAME
 
 update your db credentials in backend env do not chnage variable names!
@@ -15,6 +18,8 @@ update your db credentials in backend env do not chnage variable names!
 ## 📦 Database Details
 
 - **Tables**: `student`, `enquirydetails`, `adminlog`
+
+# Do not change this table name
 ---
 
 ## 🧾 SQL Script to Create Database and Tables
