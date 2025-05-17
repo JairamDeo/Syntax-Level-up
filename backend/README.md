@@ -1,4 +1,4 @@
-# 🚀 Food Order Backend (Node.js + Express)
+# 🚀 Syntax Level Up Backend (Node.js + Express)
 
 This is the backend server of the Syntax Level Up built using **Node.js**, **Express.js**, and **MySQL**.
 

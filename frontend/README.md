@@ -1,4 +1,4 @@
-# 🚀 Web Application For Syntax Level Up
+# 🚀 Web Application For Syntax Level Up Frontend
 
 This is the frontend of Syntax Level Up Application built with **React**, **Tailwind CSS**
 
