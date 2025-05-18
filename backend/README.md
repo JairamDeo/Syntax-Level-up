@@ -57,6 +57,10 @@ genrate this key 2 times for both JWT_Secret and ADMIN_JWT_SECRET
 
 ---
 
+```bash
+vim .env
+```
+
 ## 🔧 Environment Configuration
 vim .env
 
