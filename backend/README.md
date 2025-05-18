@@ -78,16 +78,6 @@ Backend .env
 GOOGLE_CLIENT_ID=your_google_client_id_here
 GOOGLE_CLIENT_SECRET=your_google_client_secret_here
 ```
-
-Frontend .env
-```bash
-VITE_GOOGLE_CLIENT_ID=your_google_client_id_here
-```
-📌 Note: The VITE_ prefix is required for environment variables in Vite-based React apps.
-
-Now, you're all set to implement and use Google OAuth in your MERN application! 🎉
-
----
 > 🔑 To generate a secure JWT secret key, run this command in your terminal:
 
 ```bash
@@ -116,6 +106,8 @@ DB_PASSWORD=jairamdb
 DB_NAME=syntax
 JWT_SECRET="your_64_byte_hex_string_here"
 ADMIN_JWT_SECRET="your_64_byte_hex_string_here"
+GOOGLE_CLIENT_ID=your_google_client_id_here
+GOOGLE_CLIENT_SECRET=your_google_client_secret_here
 ```
 
 ## 🚀 Running the Server
