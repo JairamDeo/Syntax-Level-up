@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import Cookies from 'js-cookie';
 
 export default function Navbar() {
     const [toggle, setToggle] = useState(false);
@@ -53,12 +54,12 @@ export default function Navbar() {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem("authToken");
+        Cookies.remove("authToken");
         setToggle(false); // Close the menu after logout
     }
 
     const handleAdminLogout = () => {
-        localStorage.removeItem("authToken1");
+        Cookies.remove("authToken1");
         setToggle(false); // Close the menu after logout
     }
 
@@ -83,14 +84,14 @@ export default function Navbar() {
                     <NavLink to="/about" activeClassName="text-[#66dc3c]" className='text-[16px] weight-600 text-black leading-[17.6px]'>About</NavLink>
                     <NavLink to="/contact" activeClassName="text-[#66dc3c]" className='text-[16px] weight-600 text-black leading-[17.6px]'>Contact us</NavLink>
 
-                    {!localStorage.getItem("authToken") && !localStorage.getItem("authToken1") ?
+                    {!Cookies.get("authToken") && !Cookies.get("authToken1") ?
                         <div className="flex flex-row gap-[10px]">
                             <NavLink to="/login" activeClassName="text-[#66dc3c]" className='text-[16px] weight-600 text-black leading-[17.6px]'>Login</NavLink>
                             <NavLink to="/admin-login" activeClassName="text-[#66dc3c]" className='text-[16px] weight-600 text-black leading-[17.6px]'>Admin</NavLink>
                         </div>
                         :
                         <div>
-                        {localStorage.getItem("authToken") ?
+                        {Cookies.get("authToken") ?
                             <React.Fragment>
                                 {/* Student Logout */}
                                 <NavLink to="/mycourse" activeClassName="text-[#66dc3c]" className='text-[16px] weight-600 text-black leading-[17.6px]'>My Courses</NavLink>                                
@@ -144,14 +145,14 @@ export default function Navbar() {
                     <li className="cursor-pointer" onClick={() => setToggle(false)}><NavLink to="/about" onClick={() => setToggle(false)}>About</NavLink></li>
                     <li className="cursor-pointer" onClick={() => setToggle(false)}><NavLink to="/contact" onClick={() => setToggle(false)}>Contact us</NavLink></li>
 
-                    {!localStorage.getItem("authToken") && !localStorage.getItem("authToken1") ?
+                    {!Cookies.get("authToken") && !Cookies.get("authToken1") ?
                         <>
                             <li className="cursor-pointer" onClick={() => setToggle(false)}><NavLink to="/login" onClick={() => setToggle(false)}>Login</NavLink></li>
                             <li className="cursor-pointer" onClick={() => setToggle(false)}><NavLink to="/admin-login" onClick={() => setToggle(false)}>Admin</NavLink></li>
                         </>
                         :
                         <>
-                        {localStorage.getItem("authToken") ?
+                        {Cookies.get("authToken") ?
                             <>
                                 <li className="cursor-pointer" onClick={() => setToggle(false)}><Link to="/login" onClick={handleLogout}>Logout</Link></li>
                                 <li className="cursor-pointer" onClick={() => setToggle(false)}><NavLink to="/mycourse" onClick={() => setToggle(false)}>My Courses</NavLink></li>

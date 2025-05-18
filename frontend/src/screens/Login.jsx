@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../screens/Login.css';
+import Cookies from 'js-cookie';
 
 export default function Login() {
 
@@ -75,11 +76,10 @@ export default function Login() {
         password: loginCredentials.password,
       });
       if (response && response.data) {
-        console.log(response.data);
         setLoginCredentials({ email: "", password: "" });
         setError(null);
         alert("Logged in successfully!");
-        localStorage.setItem("authToken",response.authToken);
+        Cookies.set("authToken",response.authToken);
         navigate("/");
       } else {
         throw new Error("Invalid response received");
