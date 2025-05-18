@@ -46,6 +46,7 @@ const isValidEmail = (email) => {
   return regex.test(email);
 };
 
+
 // Google Authentication endpoint
 app.post('/google-auth', async (req, res) => {
   const { token } = req.body;
