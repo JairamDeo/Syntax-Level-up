@@ -35,8 +35,8 @@ npm -v
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/JairamDeo/MealMate.git
-cd MealMate/frontend
+git clone https://github.com/JairamDeo/Syntax-Level-up.git
+cd Syntax-Level-up/frontend
 ```
 
 ## 🔧 Environment Configuration

@@ -46,8 +46,19 @@ npm install
 ```
 
 ---
+> 🔑 To generate a secure JWT secret key, run this command in your terminal:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+```
+
+Replace `your_64_byte_hex_string_here` with the generated key.
+genrate this key 2 times for both JWT_Secret and ADMIN_JWT_SECRET
+
+---
 
 ## 🔧 Environment Configuration
+vim .env
 
 Create a `.env` file in the root backend directory with the following variables:
 
@@ -60,17 +71,6 @@ DB_NAME=syntax
 JWT_SECRET="your_64_byte_hex_string_here"
 ADMIN_JWT_SECRET="your_64_byte_hex_string_here"
 ```
-
-> 🔑 To generate a secure JWT secret key, run this command in your terminal:
-
-```bash
-node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
-```
-
-Replace `your_64_byte_hex_string_here` with the generated key.
-genrate this key 2 times for both JWT_Secret and ADMIN_JWT_SECRET
-
----
 
 ## 🚀 Running the Server
 
