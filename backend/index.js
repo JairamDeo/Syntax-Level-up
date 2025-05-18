@@ -35,6 +35,7 @@ connection.connect((err) => {
   console.log('Connected to MySQL database');
 });
 
+
 // Middleware
 app.use(express.json());
 app.use(cors());
