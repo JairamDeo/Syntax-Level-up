@@ -50,6 +50,8 @@ vim .env
 
 ```bash
 VITE_BACKEND_URL=http://localhost:5000
+# Google OAuth client ID
+VITE_GOOGLE_CLIENT_ID=you_client_id
 ```
 
 http://localhost:5000 This URL should point to your backend server.

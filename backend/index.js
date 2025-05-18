@@ -6,9 +6,13 @@ const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const jwt = require("jsonwebtoken");
+const { OAuth2Client } = require('google-auth-library');
 
 // Load environment variables
 dotenv.config();
+
+// Initialize Google OAuth client
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 // Create Express app
 const app = express();
@@ -41,6 +45,87 @@ const isValidEmail = (email) => {
   const regex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
   return regex.test(email);
 };
+
+// Google Authentication endpoint
+app.post('/google-auth', async (req, res) => {
+  const { token } = req.body;
+  
+  try {
+    // Verify Google token
+    const ticket = await googleClient.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID
+    });
+    
+    const payload = ticket.getPayload();
+    const { email, name } = payload;
+    
+    // Check if user already exists
+    const checkUserQuery = 'SELECT * FROM student WHERE email = ?';
+    connection.query(checkUserQuery, [email], async (error, results) => {
+      if (error) {
+        console.error('Error checking user existence: ', error);
+        return res.status(500).json({ error: 'An error occurred during authentication' });
+      }
+      
+      let userId;
+      
+      if (results.length === 0) {
+        // User doesn't exist, create a new account
+        // Generate a random password for the Google user
+        const randomPassword = Math.random().toString(36).slice(-10);
+        const hashedPassword = await bcrypt.hash(randomPassword, 10);
+        
+        // Insert new user
+        const insertUserQuery = 'INSERT INTO student (name, email, password, mobile, is_google_user) VALUES (?, ?, ?, ?, ?)';
+        connection.query(insertUserQuery, [name, email, hashedPassword, '', 1], (error, insertResults) => {
+          if (error) {
+            console.error('Error creating user account: ', error);
+            return res.status(500).json({ error: 'An error occurred during account creation' });
+          }
+          
+          userId = insertResults.insertId;
+          
+          // Create JWT token
+          const data = {
+            user: {
+              id: userId
+            }
+          };
+          
+          const authToken = jwt.sign(data, process.env.JWT_SECRET);
+          return res.status(200).json({ message: 'Google authentication successful', authToken });
+        });
+      } else {
+        // User exists, login the user
+        userId = results[0].id;
+        
+        // Update the is_google_user flag if not already set
+        if (!results[0].is_google_user) {
+          const updateUserQuery = 'UPDATE student SET is_google_user = 1 WHERE id = ?';
+          connection.query(updateUserQuery, [userId], (error) => {
+            if (error) {
+              console.error('Error updating user as Google user: ', error);
+            }
+          });
+        }
+        
+        // Create JWT token
+        const data = {
+          user: {
+            id: userId
+          }
+        };
+        
+        const authToken = jwt.sign(data, process.env.JWT_SECRET);
+        return res.status(200).json({ message: 'Google authentication successful', authToken });
+      }
+    });
+  } catch (error) {
+    console.error('Error verifying Google token: ', error);
+    return res.status(401).json({ error: 'Invalid Google token' });
+  }
+});
 
 // Signup endpoint
 app.post('/signup', async (req, res) => {
@@ -85,8 +170,8 @@ app.post('/signup', async (req, res) => {
           // Hash the password
           const hashedPassword = await bcrypt.hash(password, 10);
 
-          const sql = 'INSERT INTO student (name, email, password, mobile) VALUES (?, ?, ?, ?)';
-          connection.query(sql, [name, email, hashedPassword, mobile], (error, results) => {
+          const sql = 'INSERT INTO student (name, email, password, mobile, is_google_user) VALUES (?, ?, ?, ?, ?)';
+          connection.query(sql, [name, email, hashedPassword, mobile, 0], (error, results) => {
             if (error) {
               console.error('Error executing signup query: ', error);
               return res.status(500).json({ error: 'An error occurred while signing up' });

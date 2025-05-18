@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../screens/Login.css';
@@ -17,6 +16,73 @@ export default function Login() {
   const [showPassword2, setShowPassword2] = useState(false); // State to track confirm password visibility
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
+  // Load Google API
+  useEffect(() => {
+    // Add Google SDK script
+    const script = document.createElement('script');
+    script.src = 'https://accounts.google.com/gsi/client';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    
+    // Initialize Google Sign-In
+    script.onload = () => {
+      window.google?.accounts.id.initialize({
+        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+        callback: handleGoogleSignIn
+      });
+      
+      // Render sign-in button if element exists
+      const googleLoginButtonElement = document.getElementById('google-login-button');
+      const googleSignupButtonElement = document.getElementById('google-signup-button');
+      
+      if (googleLoginButtonElement) {
+        window.google?.accounts.id.renderButton(googleLoginButtonElement, {
+          theme: 'outline',
+          size: 'large',
+          text: 'signin_with',
+          width: '100%'
+        });
+      }
+      
+      if (googleSignupButtonElement) {
+        window.google?.accounts.id.renderButton(googleSignupButtonElement, {
+          theme: 'outline',
+          size: 'large',
+          text: 'signup_with',
+          width: '100%'
+        });
+      }
+    };
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [activeWrapper]);
+
+  // Handle Google Sign-In callback
+  const handleGoogleSignIn = async (response) => {
+    try {
+      // Send the ID token to the backend
+      const backendResponse = await axios.post(`${backendUrl}/google-auth`, {
+        token: response.credential
+      });
+      
+      if (backendResponse && backendResponse.data) {
+        setLoginCredentials({ email: "", password: "" });
+        setError(null);
+        alert("Logged in with Google successfully!");
+        Cookies.set("authToken", backendResponse.data.authToken);
+        navigate("/");
+      } else {
+        throw new Error("Invalid response received");
+      }
+    } catch (error) {
+      alert("Error authenticating with Google. Please try again.");
+      console.error(error);
+    }
+  };
+
   const handleRegisterClick = () => {
     setActiveWrapper(true);
   };
@@ -30,11 +96,11 @@ export default function Login() {
     if (!credentials.email.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)) {
       alert("Please enter a valid email address.");
       return;
-  }
-  if (!credentials.mobile.match(/^[0-9]{10}$/)) {
+    }
+    if (!credentials.mobile.match(/^[0-9]{10}$/)) {
       alert("Please enter a valid phone number!");
       return;
-  }
+    }
 
     try {
       const response = await axios.post(`${backendUrl}/signup`, {
@@ -79,7 +145,7 @@ export default function Login() {
         setLoginCredentials({ email: "", password: "" });
         setError(null);
         alert("Logged in successfully!");
-        Cookies.set("authToken",response.authToken);
+        Cookies.set("authToken",response.data.authToken);
         navigate("/");
       } else {
         throw new Error("Invalid response received");
@@ -131,6 +197,9 @@ export default function Login() {
                 <i className={`fa-solid ${showPassword ? 'fa-eye' : 'fa-eye-slash'} icon`} onClick={togglePasswordVisibility}></i>
               </div>
               <button type='submit' id='loginbtn' className='logbtn animation' style={{ '--i': '4', '--j': '24;' }}>Login</button>
+              <div className="animation" style={{ '--i': '5', '--j': '24;', marginTop: '10px' }}>
+                <div id="google-login-button"></div>
+              </div>
               <div className='logreg-link animation' style={{ '--i': '5', '--j': '25;' }}>
                 <p>Don't Have an Account?<Link to="#" className='register-link' onClick={handleRegisterClick}>Sign Up</Link></p>
               </div>
@@ -157,7 +226,7 @@ export default function Login() {
               <div className='input-box animation' style={{ '--i': '19;', '--j': '2;' }}>
                 <input type='ph' name='mobile' value={credentials.mobile} onChange={onChange} maxLength={10} required></input>
                 <label>Mobile No.: </label>
-                <i class="fa-solid fa-phone"></i>
+                <i className="fa-solid fa-phone"></i>
               </div>            
               <div className='input-box animation' style={{ '--i': '20;', '--j': '3;' }}>
                 <input type={showPassword ? 'text' : 'password'} name='password' value={credentials.password} onChange={onChange} required></input>
@@ -170,6 +239,9 @@ export default function Login() {
                 <i className={`fa-solid ${showPassword2 ? 'fa-eye' : 'fa-eye-slash'} icon`} onClick={togglePasswordVisibility2}></i>
               </div>
               <button type='submit' id='signupbtn' className='logbtn animation' style={{ '--i': '21;', '--j': '4;' }}>Sign Up</button>
+              <div className="animation" style={{ '--i': '22;', '--j': '4;', marginTop: '10px' }}>
+                <div id="google-signup-button"></div>
+              </div>
               <div className='logreg-link animation' style={{ '--i': '22;', '--j': '5;' }}>
                 <p>Already Have an Account?<Link to="#" className='login-link' onClick={handleLoginClick}>Login</Link></p>
               </div>
