@@ -16,6 +16,7 @@ export default function Login() {
   const [showPassword2, setShowPassword2] = useState(false); // State to track confirm password visibility
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
+  
   // Load Google API
   useEffect(() => {
     // Add Google SDK script

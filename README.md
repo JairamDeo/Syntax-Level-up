@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS student (
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     mobile VARCHAR(15) NOT NULL UNIQUE,
+    is_google_user TINYINT(1) DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -87,26 +88,6 @@ INSERT INTO adminlog (username, password) VALUES ('AdminWizard', 'Admin@123');
 ALTER USER 'your_username'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
 FLUSH PRIVILEGES;
 ```
-
-## ✅ Output Example
-
-### 🎓 `student` Table
-
-| id | name       | email         | password | mobile       | created_at          |
-|----|------------|---------------|----------|--------------|---------------------|
-| 1  | Example    | example@email | ******   | 9876543210   | Auto-generated      |
-
-### 📩 `enquirydetails` Table
-
-| id | name     | email        | mobile      | query            | date                |
-|----|----------|--------------|-------------|------------------|---------------------|
-| 1  | John Doe | john@xyz.com | 9876543210  | I want to know.. | Auto-generated      |
-
-### 🔐 `adminlog` Table
-
-| id | username    | password  | created_at          |
-|----|-------------|-----------|---------------------|
-| 1  | AdminWizard | Admin@123 | 2024-09-24 15:16:51 |
 
 ---
 
