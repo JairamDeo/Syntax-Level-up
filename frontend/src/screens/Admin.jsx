@@ -16,7 +16,7 @@ export default function AdminLogin() {
       alert('Admin login successfully');
       setFormData({ username: '', password: '' }); // Clear all fields
 
-      Cookies.setItem("authToken1",response.authToken1);
+      Cookies.set("authToken1",response.authToken1);
       navigate("/");
 
     } catch (error) {
