@@ -11,6 +11,8 @@ const { OAuth2Client } = require('google-auth-library');
 // Load environment variables
 dotenv.config();
 
+const FRONTEND_URL = process.env.FRONTEND_URL;
+
 // Initialize Google OAuth client
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
@@ -35,9 +37,22 @@ connection.connect((err) => {
   console.log('Connected to MySQL database');
 });
 
-// Middleware
-app.use(express.json());
+// Middleware CORS handling
+app.use((req,res,next)=>{
+  res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+})
+
 app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true
+}));
+app.use(express.json());
 app.use(bodyParser.json());
 
 // Validate email format function
