@@ -104,6 +104,7 @@ DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=jairamdb
 DB_NAME=syntax
+DB_PORT
 JWT_SECRET="your_64_byte_hex_string_here"
 ADMIN_JWT_SECRET="your_64_byte_hex_string_here"
 GOOGLE_CLIENT_ID=your_google_client_id_here

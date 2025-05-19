@@ -12,6 +12,7 @@ DB_USER ( your username of db) ,
 DB_PASSWORD ,
 
 DB_NAME
+DB_PORT
 
 update your db credentials in backend env do not chnage variable names!
 

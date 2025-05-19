@@ -1,12 +1,13 @@
-// Import necessary modules
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const jwt = require("jsonwebtoken");
 const { OAuth2Client } = require('google-auth-library');
+
+// Import DB connection
+const connection = require('./dbConnection');
 
 // Load environment variables
 dotenv.config();
@@ -19,23 +20,6 @@ const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 // Create Express app
 const app = express();
 const port = process.env.PORT || 5000;
-
-// Create MySQL connection
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME
-});
-
-// Connect to MySQL database
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL database: ', err);
-    return;
-  }
-  console.log('Connected to MySQL database');
-});
 
 // Middleware CORS handling
 app.use((req,res,next)=>{

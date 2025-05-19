@@ -1,27 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const mysql = require('mysql');
 const dotenv = require('dotenv');
+
+// Import DB connection
+const connection = require('./dbConnection');
 
 // Load environment variables
 dotenv.config();
-
-// Create MySQL connection
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME
-});
-
-// Connect to MySQL database
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL database: ', err);
-    return;
-  }
-  console.log('Connected to MySQL database');
-});
 
 // Enquiry endpoint
 router.post('/enquiryForm', async (req, res) => {

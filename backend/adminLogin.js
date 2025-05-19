@@ -1,31 +1,15 @@
-// Import necessary modules
 const express = require('express');
-const mysql = require('mysql');
 const jwt = require("jsonwebtoken");
 const dotenv = require('dotenv');
+
+// Import DB connection
+const connection = require('./dbConnection');
 
 // Load environment variables
 dotenv.config();
 
 // Create Express router
 const router = express.Router();
-
-// Create MySQL connection
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME
-});
-
-// Connect to MySQL database
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL database: ', err);
-    return;
-  }
-  console.log('Connected to MySQL database');
-});
 
 // Admin login endpoint
 router.post('/adminlogin', async (req, res) => {
