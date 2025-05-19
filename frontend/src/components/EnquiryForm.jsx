@@ -8,6 +8,7 @@ export default function EnquiryForm() {
         mob: '',
         query: ''
     });
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -40,7 +41,7 @@ export default function EnquiryForm() {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/api/enquiryForm", formData);
+            const response = await axios.post(`${backendUrl}/api/enquiryForm`, formData);
 
             // Send data to web3forms
             const web3FormsResponse = await fetch("https://api.web3forms.com/submit", {
